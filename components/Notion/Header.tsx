@@ -1,34 +1,62 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs'
-import { User } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp, User } from 'lucide-react';
 import Breadcumbs from './Breadcumbs';
+import { Button } from '../ui/button';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
     const { user } = useUser();
+    const [isToggleOn, setIsToggleOn] = useState(false);
+    console.log(isToggleOn)
 
+
+    const router = useRouter()
+    
+      const handleNavCalender = () => {
+        router.push('/calender')
+      }
   return (
-    <div className='flex items-center justify-between p-5'>
-      {user && (
-        <h1 className='text-2xl'>
-             {user?.firstName} {`'s`} Space
-        </h1>
-      )}
+    <div className='flex flex-col'>
+      <div className='flex items-center justify-between p-5'>
+        {user && (
+          <h1 className='text-2xl'>
+              {user?.firstName} {`'s`} Space
+              {isToggleOn == true ? 
+              <ChevronUp className='inline-block ml-2 hover:cursor-pointer' onClick={() => setIsToggleOn(!isToggleOn)} size={20}/> 
+              :
+              <ChevronDown className='inline-block ml-2 hover:cursor-pointer' onClick={() => setIsToggleOn(!isToggleOn)} size={20}/>}
+          </h1>
+        )}
 
-      {/* Breadcrumbs */}
-      <Breadcumbs></Breadcumbs>
+        {/* Breadcrumbs */}
+        <Breadcumbs></Breadcumbs>
+        
+
+        <div>
+          <SignedOut>
+            <div className='flex items-center  bg-black text-white p-2 rounded-lg'>
+              <SignInButton/>
+            </div>
+          </SignedOut>
+
+          <SignedIn>
+              <UserButton/>
+          </SignedIn>
+        </div>
+        </div>
       
 
-      <div>
-        <SignedOut>
-            <SignInButton/>
-        </SignedOut>
-
-        <SignedIn>
-            <UserButton/>
-        </SignedIn>
-      </div>
+      {isToggleOn && (
+           <div className='p-5'>
+            <Button className=' ' onClick={handleNavCalender} >
+                <Calendar className='mr-2'/>
+                Calender
+            </Button>
+          </div> 
+      )}
     </div>
   )
 }
