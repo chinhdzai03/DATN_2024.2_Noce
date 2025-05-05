@@ -33,7 +33,6 @@ function Sidebar() {
     owner : [],
     editor : []
   });
-  console.log(user?.emailAddresses[0].toString())
  
  
   const [data , loading , error ] = useCollection(
@@ -41,8 +40,6 @@ function Sidebar() {
       query(collectionGroup(db, 'rooms'), where('userId', '==', user.emailAddresses[0].toString()))
     )
   );
-
-  console.log(data)
 
   
   
@@ -76,7 +73,6 @@ function Sidebar() {
         editor : []
       }
     )
-    console.log('Grouped Data:', groupedData);
     setGroupedData(grouped);
   }, [data]);
 
@@ -120,12 +116,12 @@ function Sidebar() {
       )}
       </div>
       {/* sidebar */}
-      <div className='w-full justify-center flex'>
+      {/* <div className='w-full justify-center flex'>
         <Button className=' absolute bottom-32 w-30 ' onClick={handleNavCalender} >
             <Calendar className='mr-2'/>
             Calender
         </Button>
-      </div>
+      </div> */}
     </>
   )
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useDateStore } from "@/lib/store";
 import { useCallback, useState } from "react";
 import { SvgIcons } from "./svg-icons"; 
@@ -27,11 +27,12 @@ export default function Create() {
     <>
       <Button
         variant="ghost"
-        className="w-[150px] justify-start rounded-full py-6 shadow"
+        className="w-[100px] justify-center rounded-full py-6 shadow"
         onClick={handleOpenPopover}
       >
-        <SvgIcons.googleCreate className="mr-2 h-8 w-8" /> <span> Create </span>{" "}
-        <ChevronDown />
+        <span>Create</span>
+        <ChevronRight />
+        
       </Button>
       {isPopoverOpen && (
         <EventPopover
