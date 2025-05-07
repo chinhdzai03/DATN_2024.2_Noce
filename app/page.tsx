@@ -4,10 +4,10 @@ import { ArrowLeftCircle } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex space-x-2 items-center animate-pulse">
-      <ArrowLeftCircle className="w-12 h-12"/>
-      <h1 className="font-bold">
-          Get started with creating a New Document
+    <main className="flex space-x-2 items-center animate-pulse justify-center h-screen">
+      {/* <ArrowLeftCircle className="w-12 h-12"/> */}
+      <h1 className="font-bold text-[32px] text-center">
+          Welcome to Noce
       </h1>
     </main>
   );

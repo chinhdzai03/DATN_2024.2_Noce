@@ -2,6 +2,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { getMonth } from "./getTime";
+import { getEvents } from "@/actions/event-actions";
 
 interface ViewStoreType {
   selectedView: string;
@@ -33,6 +34,7 @@ type EventStore = {
   closePopover: () => void;
   openEventSummary: (event: CalendarEventType) => void;
   closeEventSummary: () => void;
+  // loadEventsFromFirestore: () => Promise<void>;
 };
 
 interface ToggleSideBarType {
@@ -85,6 +87,10 @@ export const useEventStore = create<EventStore>((set) => ({
     set({ isEventSummaryOpen: true, selectedEvent: event }),
   closeEventSummary: () =>
     set({ isEventSummaryOpen: false, selectedEvent: null }),
+  // loadEventsFromFirestore: async () => {
+  //   const events = await getEvents();
+  //   set({ events });
+  // },
 }));
 
 export const useToggleSideBarStore = create<ToggleSideBarType>()(

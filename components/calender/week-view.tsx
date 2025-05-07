@@ -9,7 +9,7 @@ import { EventRenderer } from "./event-renderer";
 
 export default function WeekView() {
   const [currentTime, setCurrentTime] = useState(dayjs());
-  const { openPopover, events } = useEventStore();
+  const { openPopover, events  } = useEventStore();
 
   const { userSelectedDate, setDate } = useDateStore();
 
@@ -33,7 +33,7 @@ export default function WeekView() {
 
         {getWeekDays(userSelectedDate).map(({ currentDate, today }, index) => (
           <div key={index} className="flex flex-col items-center">
-            <div className={cn("text-xs", today && "text-blue-600")}>
+            <div className={cn("text-xs ", today && "text-blue-600")}>
               {currentDate.format("ddd")}
             </div>
             <div
