@@ -11,7 +11,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useViewStore } from "@/lib/store";
 import { Button } from "../ui/button";
-import { Calendar } from "lucide-react";
+import { Calendar , File } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs'
 
@@ -24,9 +24,10 @@ export default function HeaderRight() {
 
   return (
     <div className="flex items-center space-x-4">
-      <Button className='  ' onClick={() => router.push("/")} >
-            Move to Document
-        </Button>
+      {/* <Button className='  ' onClick={() => router.push("/")} >
+            <File className='mr-2'/>
+            Document
+        </Button> */}
     {/* <SearchComponent /> */}
     <Select onValueChange={(v) => setView(v)}>
       <SelectTrigger className="w-24 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0">
@@ -43,7 +44,7 @@ export default function HeaderRight() {
       <AvatarImage src="/img/inst2.png" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar> */}
-    <div>
+    {/* <div>
             <SignedOut>
                 <SignInButton/>
             </SignedOut>
@@ -51,7 +52,7 @@ export default function HeaderRight() {
             <SignedIn>
                 <UserButton/>
             </SignedIn>
-    </div>
+    </div> */}
   </div>
   )
 }
