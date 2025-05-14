@@ -3,7 +3,6 @@
 import React from "react";
 import { Calendar, Menu } from "lucide-react";
 import { Button } from "../ui/button";
-import Image from "next/image";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useDateStore, useToggleSideBarStore, useViewStore } from "@/lib/store";
 import dayjs from "dayjs";

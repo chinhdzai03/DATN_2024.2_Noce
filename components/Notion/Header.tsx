@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs'
-import { Calendar, ChevronDown, ChevronUp, File } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp, File, Trello } from 'lucide-react';
 import Breadcumbs from './Breadcumbs';
 import { Button } from '../ui/button';
 import { useRouter } from 'next/navigation';
@@ -19,6 +19,9 @@ const Header = () => {
       }
       const handleNavDocument = () => {
         router.push('/document')
+      }
+      const handleNavTask = () => {
+        router.push('/task')
       }
   return (
     <div className='flex flex-col'>
@@ -61,6 +64,12 @@ const Header = () => {
             <Button onClick={handleNavDocument} className=' '>
                 <File className='mr-2'/>
                 Document
+            </Button>
+
+            <Button className='' onClick={handleNavTask}>
+                
+                <Trello className='mr-2'/>
+                Task
             </Button>
           </div> 
       )}
