@@ -30,7 +30,7 @@ function DeleteDocument() {
             
             if(success) {
                 setIsOpen(false);
-                router.replace("/");
+                router.replace("/document");
                 toast.success("Room deleted successfully");
             } 
             else {

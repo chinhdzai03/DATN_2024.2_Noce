@@ -33,7 +33,7 @@ export default function DayView() {
           <div
             className={cn(
               "h-12 w-12 rounded-full p-2 text-2xl",
-              isToday && "bg-blue-600 text-white",
+              isToday && "bg-blue-600 text-white text-center",
             )}
           >
             {userSelectedDate.format("DD")}{" "}
