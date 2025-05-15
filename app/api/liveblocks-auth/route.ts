@@ -1,8 +1,7 @@
-// import { Image } from 'next/image';
-// import {authOptions} from "@/lib/authOptions";
+
 import {liveblocksClient} from "@/lib/liveblocksClient";
 import { auth } from "@clerk/nextjs/server";
-// import {getServerSession} from "next-auth";
+
 
 export async function POST(request: Request) {
   // Get the current user from your database
@@ -13,7 +12,6 @@ export async function POST(request: Request) {
     return new Response('Unauthorized', { status: 401 });
   }
 
-  const user = sessionClaims?.fullName;
   const email = sessionClaims?.email || '';
 
   // Identify the user and return the result
@@ -24,12 +22,22 @@ export async function POST(request: Request) {
     },
     {
       userInfo: {
-        name : sessionClaims?.fullName!,
-        email : sessionClaims?.email!,
-        avatar : sessionClaims?.image!,
+        name : sessionClaims?.fullName,
+        email : sessionClaims?.email,
+        avatar : sessionClaims?.image,
       },
     },
   );
+
+  // const session = liveblocksClient.prepareSession(email, {
+  //   userInfo: {
+  //     name : sessionClaims?.fullName,
+  //     email : sessionClaims?.email,
+  //     avatar : sessionClaims?.image,
+  //   },
+  // });
+
+  // const { body, status } = await session.authorize();
 
   return new Response(body, { status });
 }

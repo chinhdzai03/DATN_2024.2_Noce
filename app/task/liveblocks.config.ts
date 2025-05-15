@@ -36,7 +36,7 @@ type UserMeta = {
   info: {
     name: string;
     email: string;
-    image: string;
+    avatar: string;
   },
 }
 

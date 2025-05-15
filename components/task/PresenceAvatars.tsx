@@ -2,7 +2,6 @@
 import {Presence, useOthers} from "@/app/task/liveblocks.config";
 import {shallow} from "@liveblocks/core";
 import { Avatar , AvatarImage } from "../ui/avatar";
-
 type Props = {
   presenceKey: keyof Presence;
   presenceValue: string;
@@ -16,7 +15,7 @@ export default function PresenceAvatars({
     return users.filter(u => u.presence?.[presenceKey] === presenceValue);
   }, shallow);
 
-  // console.log("image", others);
+  // const others = useOthers();
 
   return (
     <div className="flex gap-1">
@@ -24,7 +23,7 @@ export default function PresenceAvatars({
         <div key={user.id}>
           <img
             className="size-8 rounded-full"
-            src={user?.info.image} alt="avatar"/>
+            src={user.info.avatar} alt="avatar"/>
         </div>
         
       ))}
