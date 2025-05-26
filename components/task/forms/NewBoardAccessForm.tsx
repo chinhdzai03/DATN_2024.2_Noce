@@ -16,9 +16,9 @@ export default function NewBoardAccess({boardId}:{boardId:string}) {
   }
   return (
     <form action={addEmail} className="max-w-xs">
-      <h2 className="text-lg mb-2">Add email</h2>
-      <input ref={inputRef} type="text" placeholder="john@example.com" name="email"/>
-      <button className="w-full mt-2" type="submit">Save</button>
+      <h2 className="text-lg mb-2 font-semibold">Add email</h2>
+      <input ref={inputRef} type="text" placeholder="john@example.com" name="email" className="p-3 hover:outline"/>
+      <button className="w-full mt-3 hover:text-white hover:bg-black" type="submit" >Save</button>
     </form>
   );
 }

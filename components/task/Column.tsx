@@ -67,25 +67,25 @@ export default function Column({id, name}: ColumnProps) {
   }
 
   return (
-    <div className="w-48 bg-white shadow-sm rounded-md p-2">
+    <div className="w-96 bg-gray-100 rounded-2xl p-6 flex flex-col min-h-[200px] shadow-lg h-fit">
       {!renameMode && (
-        <div className="flex justify-between">
-          <h3>{name}</h3>
-          <button className="text-gray-300" onClick={() => setRenameMode(true)}>
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-xl font-bold text-black">{name}</h3>
+          <button className="text-black hover:bg-gray-200 rounded-full p-2 transition" onClick={() => setRenameMode(true)}>
             <FontAwesomeIcon icon={faEllipsis} />
           </button>
         </div>
       )}
       {renameMode && (
         <div className="mb-8">
-          Edit name:
-          <form onSubmit={handleRenameSubmit} className="mb-2">
-            <input type="text" defaultValue={name}/>
-            <button type="submit" className="w-full mt-2">Save</button>
+          <span className="block mb-2 text-black font-semibold">Edit name:</span>
+          <form onSubmit={handleRenameSubmit} className="mb-2 flex gap-2">
+            <input type="text" defaultValue={name} className="border-b-2 border-black text-lg px-2 py-1 focus:outline-none focus:border-black bg-white text-black rounded w-full"/>
+            <button type="submit" className="bg-black text-white px-4 py-1 rounded-lg">Save</button>
           </form>
           <button
             onClick={() => deleteColumn(id)}
-            className="bg-red-500 text-white p-2 flex gap-2 w-full items-center rounded-md justify-center">
+            className="bg-red-500 text-white p-2 flex gap-2 w-full items-center rounded-md justify-center mt-2">
             <FontAwesomeIcon icon={faTrash} />
             Delete column
           </button>
@@ -98,7 +98,7 @@ export default function Column({id, name}: ColumnProps) {
             list={columnCards}
             setList={items => setTasksOrderForColumn(items, id)}
             group="cards"
-            className="min-h-12"
+            className="min-h-16"
             ghostClass="opacity-40"
           >
             {columnCards.map(card => (
@@ -108,7 +108,9 @@ export default function Column({id, name}: ColumnProps) {
         </>
       )}
       {!renameMode && (
-        <NewCardForm columnId={id} />
+        <div className="mt-4">
+          <NewCardForm columnId={id} />
+        </div>
       )}
     </div>
   );

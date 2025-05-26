@@ -1,6 +1,5 @@
 import HeaderCal from "@/components/calender/HeaderCal";
 import MainView from "@/components/calender/MainView";
-import { db } from "@/db/drizzle";
 import { CalendarEventType } from "@/lib/store";
 import dayjs from "dayjs";
 import { adminDb } from "@/firebase-admin";

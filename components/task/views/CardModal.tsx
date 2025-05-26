@@ -24,19 +24,14 @@ export default function CardModal() {
   return (
     <>
       <div
-        className="fixed inset-0 bg-black/70 z-10"
-      >
-      </div>
-      <div className="absolute inset-0 z-20 w-full" onClick={handleBackdropClick}>
-        <div className="">
+        className="fixed inset-0 bg-black/80 z-40 transition-opacity duration-200"
+      />
+      <div className="fixed inset-0 z-50 flex items-center justify-center" onClick={handleBackdropClick}>
+        <div className="w-full max-w-xl px-2 sm:px-0">
           <div
-            className="bg-white max-w-sm my-8 px-4 p-1 mx-auto rounded-md">
-            <div onClick={ev => ev.stopPropagation()}>
-              <CardModalBody/>
-            </div>
-
+            className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 relative" onClick={ev => ev.stopPropagation()}>
+            <CardModalBody/>
           </div>
-          <div>&nbsp;</div>
         </div>
       </div>
     </>

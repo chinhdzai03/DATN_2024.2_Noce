@@ -24,8 +24,9 @@ export default function Card({id, name}: {id:string, name:string}) {
   return (
     <Link
       href={`/task/boards/${params.boardId}/cards/${id}`}
-      className="relative border block bg-white my-2 py-8 px-4 rounded-md">
-      <span>{name}</span>
+      className="relative bg-white my-3 py-3 px-4 rounded-xl shadow transition-all duration-200 text-black font-medium text-base hover:shadow-lg hover:scale-[1.03] block"
+    >
+      <span style={{whiteSpace: 'pre-line'}}>{name}</span>
       <div className="absolute bottom-1 right-1">
         <PresenceAvatars presenceKey={'cardId'} presenceValue={id} />
       </div>

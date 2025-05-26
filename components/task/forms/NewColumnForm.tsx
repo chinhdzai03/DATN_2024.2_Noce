@@ -26,12 +26,18 @@ export default function NewColumnForm() {
     }
   }
   return (
-    <form onSubmit={handleNewColumn} className="max-w-xs">
-      <label className="block">
-        <span className="text-gray-600 block">Column name:</span>
-        <input type="text" placeholder="new column name"/>
-      </label>
-      <button type="submit" className="mt-2 block w-full">Create column</button>
+    <form onSubmit={handleNewColumn} className="flex flex-col gap-2 mt-2 shadow-lg rounded-xl p-4 hover:scale-110 transition-all min-w-fit ">
+      <input
+        type="text"
+        placeholder="Add new column"
+        className="bg-white text-black px-2 py-1 focus:outline-none rounded"
+      />
+      <button
+        type="submit"
+        className="bg-black text-white px-4 py-2 rounded-xl mt-1 hover:bg-gray-900 transition hover:text-white"
+      >
+        Add Column
+      </button>
     </form>
   );
 }

@@ -6,6 +6,7 @@ import Sidebar from "@/components/Notion/Sidebar";
 import { Toaster } from "@/components/ui/sonner";
 
 
+
 export const metadata: Metadata = {
   title: "Noce",
   description: "Welcome to Noce, your all-in-one solution.",

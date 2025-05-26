@@ -71,51 +71,70 @@ export default function CardModalBody() {
   return (
     <>
       {!editMode && (
-        <div className="flex justify-between">
-          <h4 className="text-2xl">{card?.name}</h4>
-          <button className="text-gray-400"
-                  onClick={() => setEditMode(true)}>
-            <FontAwesomeIcon icon={faEllipsis}/>
+        <div className="flex justify-between items-center mb-6">
+          <h4 className="text-3xl font-bold text-black truncate max-w-[70%]">{card?.name}</h4>
+          <button className="text-gray-400 hover:text-black p-2 rounded-full transition-colors" onClick={() => setEditMode(true)}>
+            <FontAwesomeIcon icon={faEllipsis} size="lg"/>
           </button>
         </div>
       )}
       {editMode && (
-        <div>
-          <form onSubmit={handleNameChangeSubmit}>
-            <input type="text" defaultValue={card?.name} className="mb-2"/>
-            <button type="submit" className="w-full">Save</button>
+        <div className="mb-6">
+          <form onSubmit={handleNameChangeSubmit} className="flex flex-col gap-3">
+            <input type="text" defaultValue={card?.name} className="mb-2 px-4 py-2 rounded-xl border border-gray-300 focus:border-black focus:ring-2 focus:ring-black/20 outline-none text-lg font-semibold"/>
+            <button type="submit" className="w-full bg-black text-white rounded-xl py-2 font-bold hover:bg-gray-900 transition">Save</button>
           </form>
-          <div className="mt-2">
-            <DeleteWithConfirmation
-              onDelete={() => handleDelete()} />
+          <div className="mt-3 flex gap-2">
+            <DeleteWithConfirmation onDelete={() => handleDelete()} />
+            <CancelButton onClick={() => setEditMode(false)} />
           </div>
-          <CancelButton onClick={() => setEditMode(false)} />
         </div>
       )}
       {!editMode && (
         <div>
-          <h2 className="flex gap-2 items-center mt-4">
-            <FontAwesomeIcon icon={faFileLines}/>
+          <h2 className="flex gap-2 items-center mt-2 mb-2 text-lg font-semibold text-black">
+            <FontAwesomeIcon icon={faFileLines} className="text-black/70"/>
             Description
           </h2>
-          <CardDescription/>
-          <h2 className="flex gap-2 items-center mt-4">
-            <FontAwesomeIcon icon={faComments}/>
+          <div className="mb-6">
+            <CardDescription/>
+          </div>
+          <h2 className="flex gap-2 items-center mt-2 mb-2 text-lg font-semibold text-black">
+            <FontAwesomeIcon icon={faComments} className="text-black/70"/>
             Comments
           </h2>
           <div className="flex flex-col gap-8">
             {threads && threads.map(thread => (
-              <div key={thread.id}>
-                <Thread thread={thread} id={thread.id}/>
-              </div>
+              
+                <Thread key={thread.id}
+                  thread={thread} 
+                  id={thread.id}
+                  showComposer={true}
+                  showActions="hover"
+                  showReactions={true}
+                  showAttachments={true}
+                  showComposerFormattingControls={true}
+                  overrides={{
+                    THREAD_COMPOSER_PLACEHOLDER: "Write comments ...",
+                    THREAD_COMPOSER_SEND: "Gửi",
+                  }}
+                />
+              
             ))}
             {threads?.length === 0 && (
-              <div>
-                <Composer metadata={{cardId: params.cardId.toString()}}/>
-              </div>
+              
+                <Composer 
+                  metadata={{cardId: params.cardId.toString()}}
+                  showAttachments={true}
+                  showFormattingControls={true}
+                  overrides={{
+                    COMPOSER_PLACEHOLDER: "Write comments ...",
+                    COMPOSER_SEND: "Gửi",
+                  }}
+                />
+              
             )}
           </div>
-
         </div>
       )}
     </>

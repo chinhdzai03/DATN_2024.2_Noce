@@ -90,4 +90,11 @@ export const {
   UserMeta,
   RoomEvent,
   ThreadMetadata
->(client);
+>(client
+//   , {
+//   resolveUsers: async (userIds: string[]) => {
+//     const response = await fetch(`/api/users?ids=${userIds.join(",")}`);
+//     return await response.json();
+//   },
+// }
+);

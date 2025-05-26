@@ -5,8 +5,19 @@ import {LiveList, LiveObject, shallow} from "@liveblocks/core";
 import {ReactSortable} from "react-sortablejs";
 import {default as BoardColumn} from '@/components/task/Column';
 
-export default function Columns() {
-  const columns = useStorage(root => root.columns.map(c => ({...c})), shallow);
+export default function Columns({ searchTerm = "" }) {
+  const columns = useStorage(root => root.columns?.map(c => ({...c})) ?? [], shallow);
+  const cards = useStorage(root => root.cards?.map(c => ({...c})) ?? [], shallow);
+
+  // Lọc column: chỉ giữ column có ít nhất 1 card chứa searchTerm
+  const filteredColumns = searchTerm.trim() === ""
+    ? columns || []
+    : (columns || []).filter(col =>
+        (cards || []).some(card =>
+          card.columnId === col.id &&
+          card.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
 
   const updateColumns = useMutation(({storage}, columns:LiveObject<Column>[]) => {
     storage.set('columns', new LiveList(columns));
@@ -27,14 +38,14 @@ export default function Columns() {
   }
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-8 px-4 py-2 overflow-x-auto items-start">
       <ReactSortable
         group={'board-column'}
-        list={columns}
-        className="flex gap-4"
+        list={filteredColumns}
+        className="flex gap-8"
         ghostClass="opacity-40"
         setList={setColumnsOrder}>
-        {columns?.length > 0 && columns.map(column => (
+        {filteredColumns.length > 0 && filteredColumns.map(column => (
           <BoardColumn
             key={column.id}
             {...column}

@@ -21,8 +21,10 @@ export default function BoardLayout({children, modal}: PageProps) {
           columns: new LiveList([]),
           cards: new LiveList([]),
         }}>
-        {children}
-        {modal}
+        <div className="bg-white">
+          {children}
+          {modal}
+        </div>
       </RoomProvider>
     </BoardContextProvider>
   );
