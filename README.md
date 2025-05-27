@@ -26,7 +26,6 @@ Track your goals and tasks efficiently.
 
 - Add, edit, and remove tasks
 - Support for subtasks and due dates
-- Task prioritization (e.g., low/medium/high)
 - Filter by status (To Do, In Progress, Done)
 
 ---
