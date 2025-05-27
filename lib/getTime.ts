@@ -40,6 +40,9 @@ export const getHours = Array.from({ length: 24 }, (_, i) =>
   dayjs().startOf("day").add(i, "hour"),
 );
 
+export const getQuarterHours = Array.from({ length: 24 * 4 }, (_, i) =>
+  dayjs().startOf("day").add(i * 15, "minute")
+);
 
 // Function to generate weeks of the month dynamically
 

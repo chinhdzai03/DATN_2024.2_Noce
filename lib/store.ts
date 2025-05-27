@@ -22,6 +22,8 @@ export type CalendarEventType = {
   title: string;
   date: string;
   description: string;
+  fromTime?: string;
+  toTime?: string;
   role?: "owner" | "guest";
   createdBy?: string;
 };
@@ -31,6 +33,8 @@ type EventStore = {
   isPopoverOpen: boolean;
   isEventSummaryOpen: boolean;
   selectedEvent: CalendarEventType | null;
+  selectedTime: string;
+  setSelectedTime: (time: string) => void;
   setEvents: (events: CalendarEventType[]) => void;
   openPopover: () => void;
   closePopover: () => void;
@@ -82,6 +86,8 @@ export const useEventStore = create<EventStore>((set) => ({
   isPopoverOpen: false,
   isEventSummaryOpen: false,
   selectedEvent: null,
+  selectedTime: "00:00",
+  setSelectedTime: (time) => set({ selectedTime: time }),
   setEvents: (events) => set({ events }),
   openPopover: () => set({ isPopoverOpen: true }),
   closePopover: () => set({ isPopoverOpen: false }),

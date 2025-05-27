@@ -7,11 +7,13 @@ import { ChevronDown } from "lucide-react"
 
 export default function AddTime({
   onTimeSelect,
+  initialTime = '00:00',
 }: {
   onTimeSelect: (time: string) => void;
+  initialTime?: string;
 }) {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedTime, setSelectedTime] = useState('00:00')
+  const [selectedTime, setSelectedTime] = useState(initialTime)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -26,6 +28,10 @@ export default function AddTime({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    setSelectedTime(initialTime);
+  }, [initialTime]);
 
   const generateTimeIntervals = () => {
     const intervals = []

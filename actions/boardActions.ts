@@ -66,7 +66,7 @@ export async function addEmailToBoard(boardId:string, email:string) {
   const room = await liveblocksClient.getRoom(boardId);
   const usersAccesses = room.usersAccesses;
   usersAccesses[email] = ['room:write'];
-  console.log(usersAccesses);
+  // console.log(usersAccesses);
   await liveblocksClient.updateRoom(boardId, {usersAccesses});
   // Thêm vào myBoards của guest
   await adminDb

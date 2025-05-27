@@ -49,7 +49,7 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
       setDeleteError(result.error || "Failed to delete event. Please try again.");
     }
   };
-  console.log(event)
+  // console.log(event)
 
   if (!isOpen) return null
 

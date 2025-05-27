@@ -12,7 +12,7 @@ export default function BoardsTiles({boards}:{boards:RoomInfo[]}) {
         <div className="my-8 grid md:grid-cols-3 lg:grid-cols-4 gap-6">
           {boards?.length > 0 && boards.map(board => (
             <Link
-              className="bg-white px-8 py-12 rounded-2xl block relative shadow-md text-black font-bold text-xl transition-all duration-200 hover:shadow-xl hover:scale-105"
+              className="bg-[#FFFBDE] px-8 py-12 rounded-2xl block relative shadow-md text-black font-bold text-xl transition-all duration-200 hover:shadow-xl hover:scale-105"
               href={`/task/boards/${board.id}`}
               key={board.id}>
               {board.metadata.boardName}

@@ -1,41 +1,3 @@
-// 'use server'
-
-// import { db } from "@/db/drizzle";
-// import { eventsTable } from "@/db/schema";
-// import { revalidatePath } from "next/cache";
-
-
-// export async function createEvent(formData:  FormData): Promise<{ error: string } | { success: boolean } > {
-//   const title = formData.get('title') as string;
-//   const description = formData.get('description') as string;
-//   const date = formData.get('date') as string;
-//   const time = formData.get('time') as string;
-
-
-//   if (!title || !description || !date || !time) {
-//     return { error: 'All fields are required' };
-//   }
-
-//   const dateTime = new Date(`${date}T${time}:00`);
-
-//   try {
-//     await db.insert(eventsTable).values({
-//         title,
-//         description,
-//         date: dateTime,
-//       });
-
-//       // Revalidate the path and return a success response  
-//     revalidatePath("/");
-
-//     return { success: true };  // Return success instead of revalidatePath directly
-    
-//   } catch (error) {
-//     console.error('Error creating event:', error);
-//     return { error: 'Failed to create event' };
-//   }
-// }
-
 'use server';
 
 import { adminDb } from "@/firebase-admin";
@@ -59,26 +21,77 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
   const description = formData.get('description') as string;
   const date = formData.get('date') as string;
   const time = formData.get('time') as string;
+  const fromTime = formData.get('fromTime') as string | null;
+  const toTime = formData.get('toTime') as string | null;
   const guestsRaw = formData.get('guests') as string;
   const guests = guestsRaw ? guestsRaw.split(/[\,\n;]/).map(e => e.trim()).filter(Boolean) : [];
 
-  if (!title || !description || !date || !time) {
+  if (!title || !description || !date || (!time && (!fromTime || !toTime))) {
     return { error: 'All fields are required' };
   }
 
-  const dateTime = new Date(`${date}T${time}:00`);
+  const dateTime = new Date(`${date}T${time || fromTime}:00`);
   const eventId = generateEventId();
 
   try {
     // Tạo sự kiện trong collection 'events' với eventId tự tạo
+    if(fromTime && toTime){
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
       date: dateTime,
+      fromTime: fromTime || time,
+      toTime: toTime || time,
       createdBy: userEmail,
       createdAt: new Date(),
     });
+    // Ghi thông tin sự kiện vào user subcollection 'myEvents'
+    await adminDb
+      .collection("users")
+      .doc(userEmail!)
+      .collection("myEvents")
+      .doc(eventId)
+      .set({
+        eventId: eventId,
+        title,
+        description,
+        date: dateTime,
+        fromTime: fromTime || time,
+        toTime: toTime || time,
+        role: "owner",
+        createdBy: userEmail,
+        createdAt: new Date(),
+      });
 
+    // Lưu event cho từng guest
+    for (const guestEmail of guests) {
+      await adminDb
+        .collection("users")
+        .doc(guestEmail)
+        .collection("myEvents")
+        .doc(eventId)
+        .set({
+          eventId: eventId,
+          title,
+          description,
+          date: dateTime,
+          fromTime: fromTime || time,
+          toTime: toTime || time,
+          role: "guest",
+          invitedBy: userEmail,
+          createdBy: userEmail,
+          createdAt: new Date(),
+        });
+    }
+  }
+  else{
+    await adminDb.collection("events").doc(eventId).set({
+      title,
+      description,
+      date: new Date(`${date}T${time}:00`),
+      createdBy: userEmail,
+      createdAt: new Date(),
+    });
     // Ghi thông tin sự kiện vào user subcollection 'myEvents'
     await adminDb
       .collection("users")
@@ -113,7 +126,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           createdAt: new Date(),
         });
     }
-
+  }
     // Làm mới cache path (nếu cần)
     revalidatePath("/");
 
@@ -139,11 +152,17 @@ export async function getEvents() {
 
   return snapshot.docs.map((doc) => {
     const data = doc.data();
+    const fromTime = typeof data.fromTime === 'string' && /^\d{2}:\d{2}$/.test(data.fromTime) ? data.fromTime : undefined;
+    const toTime = typeof data.toTime === 'string' && /^\d{2}:\d{2}$/.test(data.toTime) ? data.toTime : undefined;
     return {
       id: doc.id,
       title: data.title,
       description: data.description,
       date: dayjs(data.date.toDate()), // convert Firestore Timestamp to dayjs
+      fromTime,
+      toTime,
+      role: data.role,
+      createdBy: data.createdBy,
     };
   });
 }

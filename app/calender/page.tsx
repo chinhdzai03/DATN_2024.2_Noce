@@ -37,6 +37,8 @@ const getEventsData = async (userId: string): Promise<CalendarEventType[]> => {
         ).toISOString(), // Convert dayjs to ISO string
         role: data.role, // lấy role nếu có
         createdBy: data.createdBy, // lấy createdBy nếu có
+        fromTime: data.fromTime, // lấy fromTime nếu có
+        toTime: data.toTime,     // lấy toTime nếu có
       };
     });
 

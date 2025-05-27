@@ -38,6 +38,8 @@ export default function MainView({
       date: event.date,
       title: event.title,
       description: event.description,
+      fromTime: event.fromTime,
+      toTime: event.toTime,
       role: event.role,
       createdBy: event.createdBy,
     }));

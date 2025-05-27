@@ -67,7 +67,7 @@ export default function Column({id, name}: ColumnProps) {
   }
 
   return (
-    <div className="w-96 bg-gray-100 rounded-2xl p-6 flex flex-col min-h-[200px] shadow-lg h-fit">
+    <div className="w-96 bg-[#FFFBDE] rounded-2xl p-6 flex flex-col min-h-[200px] shadow-lg h-fit">
       {!renameMode && (
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-bold text-black">{name}</h3>
