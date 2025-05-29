@@ -1,4 +1,4 @@
-import LiveBlockProvider from '@/components/Notion/LiveBlockProvider'
+import LiveBlockProvider from '@/components/document/LiveBlockProvider'
 
 
 function Pagelayout({children} : {

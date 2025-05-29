@@ -1,6 +1,6 @@
 'use client'
 
-import Sidebar from "@/components/Notion/Sidebar";
+import Sidebar from "@/components/document/Sidebar";
 import React, { useRef, useState } from 'react';
 
 export default function DocumentLayout({ children }: { children: React.ReactNode }) {

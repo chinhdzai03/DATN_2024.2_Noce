@@ -11,7 +11,8 @@ const config: Config = {
   	extend: {
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+  			'a1-a2': 'url(/img/a1.jpg), url(/img/a2.jpg)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -76,11 +77,21 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
+  			},
+  			'slide-in-left': {
+  				'0%': { transform: 'translateX(-100%)', opacity: '0' },
+  				'100%': { transform: 'translateX(0)', opacity: '1' }
+  			},
+  			'slide-in-right': {
+  				'0%': { transform: 'translateX(100%)', opacity: '0' },
+  				'100%': { transform: 'translateX(0)', opacity: '1' }
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+  			'slide-in-left': 'slide-in-left 1s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+  			'slide-in-right': 'slide-in-right 1s cubic-bezier(0.4, 0, 0.2, 1) forwards'
   		}
   	}
   },

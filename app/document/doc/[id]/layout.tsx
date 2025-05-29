@@ -1,5 +1,5 @@
-import RoomProvider from '@/components/Notion/RoomProvider'
-import Sidebar from '@/components/Notion/Sidebar'
+import RoomProvider from '@/components/document/RoomProvider'
+import Sidebar from '@/components/document/Sidebar'
 import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 

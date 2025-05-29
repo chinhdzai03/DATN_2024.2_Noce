@@ -9,14 +9,10 @@ import { useRouter, usePathname } from 'next/navigation';
 import { House } from 'lucide-react';
 
 const Header = () => {
-    const { user, isLoaded } = useUser();
+    const { user } = useUser();
     const router = useRouter();
     const pathname = usePathname();
-
-    if (!isLoaded) {
-        return <div>Loading...</div>;
-    }
-
+    
     // Hàm xác định active
     const isActive = (path: string) => pathname.startsWith(path);
 
@@ -28,15 +24,13 @@ const Header = () => {
 
     return (
       <div className='flex flex-col '>
-        <div className='flex items-center justify-between p-5 ' style={{ background: '#1a1a1a', color: 'white' }}>
+        <div className='flex items-center justify-between p-5 text-white bg-gradient-to-b from-black to-gray-600' >
         <SignedIn>
           <div className='flex items-center '>
-            
-            {user && (
-              <h1 className='text-2xl font-bold '>
-                {user?.firstName} {`'s`} Space
-              </h1>
-            )}
+            {/* Hiển thị tên user nếu đã có, nếu chưa thì để placeholder */}
+            <h1 className='text-2xl font-bold '>
+              {user ? `${user.firstName} 's Space` : <span className="opacity-50">Loading...</span>}
+            </h1>
             {/* Divider */}
             
               <div className='border-white border-2 h-10 ml-6'>
@@ -67,7 +61,8 @@ const Header = () => {
             </SignedOut>
 
             <SignedIn>
-                <UserButton  />
+                {/* Hiển thị UserButton nếu đã có user */}
+                {user ? <UserButton /> : <div className="w-8 h-8 bg-gray-400 rounded-full animate-pulse" />}
             </SignedIn>
           </div>
         </div>

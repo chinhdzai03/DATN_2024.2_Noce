@@ -1,5 +1,5 @@
 'use client'
-import Document from '@/components/Notion/Document'
+import Document from '@/components/document/Document'
 import React from 'react'
 
 function DocumentPage({params : {id}}: {params : {id : string}}) {

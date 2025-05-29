@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Header from "@/components/Notion/Header";
-import Sidebar from "@/components/Notion/Sidebar";
+import Header from "@/components/document/Header";
+import Sidebar from "@/components/document/Sidebar";
 import { Toaster } from "@/components/ui/sonner";
 
 

@@ -7,15 +7,18 @@ import {FormEvent, useState} from "react";
 import {ReactSortable} from "react-sortablejs";
 import NewCardForm from "@/components/task/forms/NewCardForm";
 import {default as ColumnCard} from '@/components/task/Card';
+import { HexColorPicker } from "react-colorful";
 
 type ColumnProps = {
   id: string;
   name: string;
+  color?: string;
 };
 
-export default function Column({id, name}: ColumnProps) {
+export default function Column({id, name, color = '#FFFBDE'}: ColumnProps) {
 
   const [renameMode, setRenameMode] = useState(false);
+  const [colorPickerOpen, setColorPickerOpen] = useState(false);
 
   const columnCards = useStorage<Card[]>(root => {
     return root.cards
@@ -36,6 +39,11 @@ export default function Column({id, name}: ColumnProps) {
   const updateColumn = useMutation(({storage}, id, newName) => {
     const columns = storage.get('columns');
     columns.find(c => c.toObject().id === id)?.set('name', newName);
+  }, []);
+
+  const updateColumnColor = useMutation(({storage}, id, newColor) => {
+    const columns = storage.get('columns');
+    columns.find(c => c.toObject().id === id)?.set('color', newColor);
   }, []);
 
   const deleteColumn = useMutation(({storage}, id) => {
@@ -67,13 +75,26 @@ export default function Column({id, name}: ColumnProps) {
   }
 
   return (
-    <div className="w-96 bg-[#FFFBDE] rounded-2xl p-6 flex flex-col min-h-[200px] shadow-lg h-fit">
-      {!renameMode && (
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-black">{name}</h3>
-          <button className="text-black hover:bg-gray-200 rounded-full p-2 transition" onClick={() => setRenameMode(true)}>
-            <FontAwesomeIcon icon={faEllipsis} />
-          </button>
+    <div className="w-96 rounded-2xl p-6 flex flex-col min-h-[200px] shadow-lg h-fit" style={{ backgroundColor: color }}>
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center gap-2">
+          <button
+            className="w-6 h-6 rounded-full border-2 border-gray-300 mr-2"
+            style={{ backgroundColor: color }}
+            onClick={() => setColorPickerOpen(open => !open)}
+            title="Change column color"
+          />
+          {!renameMode && (
+            <h3 className="text-xl font-bold text-black">{name}</h3>
+          )}
+        </div>
+        <button className="text-black hover:bg-gray-200 rounded-full p-2 transition" onClick={() => setRenameMode(true)}>
+          <FontAwesomeIcon icon={faEllipsis} />
+        </button>
+      </div>
+      {colorPickerOpen && (
+        <div className="mb-2">
+          <HexColorPicker color={color} onChange={c => updateColumnColor(id, c)} />
         </div>
       )}
       {renameMode && (

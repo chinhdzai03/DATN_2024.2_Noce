@@ -4,6 +4,7 @@ import Board from "@/components/task/Board";
 import {liveblocksClient} from "@/lib/liveblocksClient";
 // import {getUserEmail} from "@/lib/userClient";
 import {auth} from "@clerk/nextjs/server";
+import { adminDb } from '@/firebase-admin';
 
 type PageProps = {
   params: {
@@ -39,11 +40,16 @@ export default async function BoardPage(props: PageProps) {
       </div>
     );
   }
+  // Lấy backgroundImage từ Firestore
+  const boardDoc = await adminDb.collection('boards').doc(boardId).get();
+  const backgroundImage = boardDoc.exists ? boardDoc.data()?.backgroundImage : undefined;
   return (
     <div>
       <Board
         name={boardInfo.metadata.boardName.toString()}
-        id={boardId} />
+        id={boardId}
+        backgroundImage={boardInfo.metadata.backgroundImage as string}
+      />
     </div>
   );
 }
