@@ -93,7 +93,7 @@ export default function Column({id, name, color = '#FFFBDE'}: ColumnProps) {
         </button>
       </div>
       {colorPickerOpen && (
-        <div className="mb-2">
+        <div className="mb-2 ">
           <HexColorPicker color={color} onChange={c => updateColumnColor(id, c)} />
         </div>
       )}

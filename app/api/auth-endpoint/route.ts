@@ -1,4 +1,3 @@
-import { collectionGroup, where } from 'firebase/firestore';
 import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";

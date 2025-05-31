@@ -10,7 +10,7 @@ function LiveBlockProvider( {children} : {
     }
         
   return (
-    <LiveblocksProvider authEndpoint={'/auth-endpoint'} throttle={16}>
+    <LiveblocksProvider authEndpoint={'/api/auth-endpoint'} throttle={16}>
         {children}
     </LiveblocksProvider>
   )

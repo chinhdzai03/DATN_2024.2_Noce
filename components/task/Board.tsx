@@ -111,7 +111,7 @@ export default function Board({id, name, backgroundImage}: {id:string, name:stri
       >
         {/* Nút Change/Set background nổi góc phải */}
         <button
-          className={`bg-black absolute right-8 top-[84px] rounded-xl text-white px-4 py-2 shadow font-medium z-20 border border-gray-200 hover:bg-gray-800 transition-all duration-300${backgroundImage ? '' : ' mt-4'}`}
+          className={`bg-black absolute right-8 top-[96px] rounded-xl text-white px-4 py-2 shadow font-medium z-20 border border-gray-200 hover:bg-gray-800 transition-all duration-300${backgroundImage ? '' : ' mt-4'}`}
           onClick={() => setBgModalOpen(true)}
         >
           {backgroundImage ? 'Change Background' : 'Set Background'}

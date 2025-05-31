@@ -3,11 +3,9 @@ import Boards from "@/components/task/Boards";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRight} from "@fortawesome/free-solid-svg-icons";
-// import { useUser } from "@clerk/nextjs";
 import { SquareKanban } from "lucide-react";
 
 export default function Task () {
-    // const { user } = useUser();
 
     return (
         <main className="ml-4">

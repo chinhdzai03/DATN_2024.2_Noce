@@ -2,7 +2,7 @@
 
 import { adminDb } from "@/firebase-admin";
 import liveblocks from "@/lib/liveblocks";
-import { auth, getAuth } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 
 
 export async function createNewDocument() {
