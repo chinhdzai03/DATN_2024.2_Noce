@@ -178,12 +178,12 @@ export function EventRangeModal({
   fromTimeInitial = "00:00",
   toTimeInitial = "00:00",
 }: EventRangeModalProps) {
-  if (!isOpen) return null;
   const popoverRef = useRef<HTMLDivElement>(null);
   const [isPending, startTransition] = useTransition();
   const [formKey, setFormKey] = useState(0);
 
   useEffect(() => {
+    if (!isOpen) return;
     const handleClickOutside = (event: MouseEvent) => {
       if (
         popoverRef.current &&
@@ -192,11 +192,7 @@ export function EventRangeModal({
         onClose();
       }
     };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -227,6 +223,8 @@ export function EventRangeModal({
       }
     });
   }
+
+  if (!isOpen) return null;
 
   return (
     <div
