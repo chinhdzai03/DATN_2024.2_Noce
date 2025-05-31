@@ -2,8 +2,11 @@
 import { initializeApp, getApps , App ,getApp , cert } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 
-const serviceKey = require('./service_key.json');
-
+// const serviceKey = require('./service_key.json');
+let serviceKey: any;
+const raw = process.env.FIREBASE_SERVICE_KEY;
+if (!raw) throw new Error('FIREBASE_SERVICE_KEY env variable is not set');
+serviceKey = JSON.parse(raw);
 let app: App;
 
 if (getApps().length === 0) {
