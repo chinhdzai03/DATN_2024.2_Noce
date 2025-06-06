@@ -1,6 +1,7 @@
 import {useRoom} from "@/app/task/liveblocks.config";
 import DescriptionEditor from "@/components/task/DescriptionEditor";
 // import {LiveblocksProvider} from "@liveblocks/yjs";
+import { LiveblocksProvider } from '@liveblocks/react/suspense'
 import {LiveblocksYjsProvider} from '@liveblocks/yjs'
 
 import {useParams} from "next/navigation";

@@ -28,6 +28,7 @@ export default async function BoardPage(props: PageProps) {
   const boardId = props.params.boardId;
   // const userEmail = await getUserEmail();
   const boardInfo = await liveblocksClient.getRoom(boardId);
+  // console.log("boardInfo at main page",boardInfo.usersAccesses)
   const userAccess = boardInfo.usersAccesses?.[userEmail];
   const hasAccess = userAccess && [...userAccess].includes('room:write');
   if (!hasAccess) {

@@ -10,6 +10,7 @@ import {shallow} from "@liveblocks/core";
 import {Composer, Thread} from "@liveblocks/react-ui";
 import {useParams, useRouter} from "next/navigation";
 import {FormEvent, useContext, useEffect, useState} from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function CardModalBody() {
 
@@ -72,7 +73,14 @@ export default function CardModalBody() {
     <>
       {!editMode && (
         <div className="flex justify-between items-center mb-6">
-          <h4 className="text-3xl font-bold text-black truncate max-w-[70%]">{card?.name}</h4>
+          <div className="flex items-center gap-3">
+            <Checkbox
+              checked={card?.completed}
+              onCheckedChange={checked => updateCard(params.cardId, { completed: !!checked })}
+              className={`w-6 h-6 rounded-full border-2 ${card?.completed ? 'bg-blue-600 border-blue-600' : 'bg-white border-gray-300'} flex items-center justify-center transition-colors`}
+            />
+            <h4 className="text-3xl font-bold text-black truncate max-w-[70%]" style={{textDecoration: card?.completed ? 'line-through' : 'none', color: card?.completed ? '#22c55e' : undefined}}>{card?.name}</h4>
+          </div>
           <button className="text-gray-400 hover:text-black p-2 rounded-full transition-colors" onClick={() => setEditMode(true)}>
             <FontAwesomeIcon icon={faEllipsis} size="lg"/>
           </button>

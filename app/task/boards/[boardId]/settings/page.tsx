@@ -18,8 +18,9 @@ type PageProps = {
 
 export default async function BoardSettings({params}:PageProps) {
   const {boardId} = params;
+  // console.log(boardId)
   const boardInfo = await liveblocksClient.getRoom(boardId);
-  // console.log(boardInfo)
+  // console.log("boardInfo at settings page",boardInfo.usersAccesses)
   const {sessionClaims} = await auth();
   if (!sessionClaims) {
     return (

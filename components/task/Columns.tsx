@@ -9,7 +9,6 @@ export default function Columns({ searchTerm = "" }) {
   const columns = useStorage(root => root.columns?.map(c => ({...c})) ?? [], shallow);
   const cards = useStorage(root => root.cards?.map(c => ({...c})) ?? [], shallow);
 
-  // Lọc column: chỉ giữ column có ít nhất 1 card chứa searchTerm
   const filteredColumns = searchTerm.trim() === ""
     ? columns || []
     : (columns || []).filter(col =>

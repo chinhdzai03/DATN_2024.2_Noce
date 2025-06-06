@@ -25,6 +25,7 @@ export type Card = {
   id: string;
   index: number;
   columnId: string;
+  completed: boolean;
 };
 
 type Storage = {
@@ -47,33 +48,6 @@ type ThreadMetadata = {
   cardId: string;
 };
 
-// export const {
-//   RoomProvider,
-//   useMyPresence,
-//   useUpdateMyPresence,
-//   useStorage,
-//   useMutation,
-//   useRoom,
-//   useSelf,
-//   useOthers,
-//   useThreads,
-// } = createRoomContext<
-//   Presence,
-//   Storage,
-//   UserMeta,
-//   RoomEvent,
-//   ThreadMetadata
-// >(client, {
-//   resolveUsers: async ({ userIds }: { userIds: string[] }) => {
-//     const response = await fetch(`/api/users?ids=` + userIds.join(','));
-//     return await response.json();
-//   },
-//   resolveMentionSuggestions: async ({ text }: { text: string }) => {
-//     const response = await fetch(`/api/users?search=`+text);
-//     const users = await response.json();
-//     return users.map((user:UserMeta) => user.id);
-//   },
-// });
     
 export const {
   RoomProvider,

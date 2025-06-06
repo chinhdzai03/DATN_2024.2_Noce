@@ -13,6 +13,7 @@ export default function NewCardForm({columnId}: {columnId: string}) {
       id: uniqid.time(),
       columnId: columnId,
       index: 9999,
+      completed: false,
     }))
   }, [columnId]);
 
