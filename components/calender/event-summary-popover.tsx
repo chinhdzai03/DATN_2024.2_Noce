@@ -55,12 +55,12 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
 
   return (
     <div
-      className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 animate-fadein"
       onClick={onClose}
     >
       <div
         ref={popoverRef}
-        className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg"
+        className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg transition-transform duration-300 animate-zoom"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
@@ -76,6 +76,14 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
           {event.role === 'guest' && (
             <p><strong>Created By:</strong> {event.createdBy || "Unknown"}</p>
           )}
+          <div>
+            <strong>Description:</strong>
+            <div
+              className="max-w-md break-words whitespace-pre-line mt-1 max-h-32 overflow-auto p-1 border rounded bg-slate-50"
+            >
+              {event.description}
+            </div>
+          </div>
           {/* Add more event details here */}
           {event.role === 'owner' && (
             <div className='flex justify-end'>

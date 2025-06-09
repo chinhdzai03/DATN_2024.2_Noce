@@ -65,3 +65,19 @@
   }
 }
 
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadein {
+  animation: fadein 0.3s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-zoom {
+  animation: zoom 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+

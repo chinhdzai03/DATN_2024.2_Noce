@@ -102,7 +102,7 @@ export default function Column({id, name, color = '#FFFBDE'}: ColumnProps) {
           <span className="block mb-2 text-black font-semibold">Edit name:</span>
           <form onSubmit={handleRenameSubmit} className="mb-2 flex gap-2">
             <input type="text" defaultValue={name} className="border-b-2 border-black text-lg px-2 py-1 focus:outline-none focus:border-black bg-white text-black rounded w-full"/>
-            <button type="submit" className="bg-black text-white px-4 py-1 rounded-lg">Save</button>
+            <button type="submit" className="bg-black text-white px-4 py-1 rounded-lg hover:bg-gray-900  hover:text-white transition-all duration-300">Save</button>
           </form>
           <button
             onClick={() => deleteColumn(id)}

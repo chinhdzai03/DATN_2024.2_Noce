@@ -120,7 +120,8 @@ const Document = ({id} : {id : string}) => {
         onRequestClose={() => setBgModalOpen(false)}
         contentLabel='Change background'
         ariaHideApp={false}
-        style={{ content: { maxWidth: 480, margin: 'auto', height: 420, borderRadius: 16, padding: 0 } }}
+        style={{ content: { maxWidth: 480, margin: 'auto', height: 420, borderRadius: 16, padding: 0, transition: 'transform 0.3s, opacity 0.3s', transform: bgModalOpen ? 'scale(1)' : 'scale(0.95)', opacity: bgModalOpen ? 1 : 0 },
+        overlay: { zIndex: 10000, background: 'rgba(0,0,0,0.3)', transition: 'opacity 0.3s', opacity: bgModalOpen ? 1 : 0 } }}
       >
         <div className='flex flex-col h-full'>
           <div className='flex border-b'>

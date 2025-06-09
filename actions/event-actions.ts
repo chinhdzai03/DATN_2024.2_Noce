@@ -30,7 +30,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
     return { error: 'All fields are required' };
   }
 
-  const dateTime = new Date(`${date}T${time || fromTime}:00`);
+  const dateTime = dayjs(`${date}T${time || fromTime}:00`).toDate();
   const eventId = generateEventId();
 
   try {
@@ -39,7 +39,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: dateTime,
+      date: dayjs(`${date}T${fromTime}:00`).toDate(),
       fromTime: fromTime || time,
       toTime: toTime || time,
       createdBy: userEmail,
@@ -55,7 +55,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dateTime,
+        date: dayjs(`${date}T${fromTime}:00`).toDate(),
         fromTime: fromTime || time,
         toTime: toTime || time,
         role: "owner",
@@ -74,7 +74,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dateTime,
+          date: dayjs(`${date}T${fromTime}:00`).toDate(),
           fromTime: fromTime || time,
           toTime: toTime || time,
           role: "guest",
@@ -88,7 +88,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: new Date(`${date}T${time}:00`),
+      date: dayjs(`${date}T${time}:00`).toDate(),
       createdBy: userEmail,
       createdAt: new Date(),
     });
@@ -102,7 +102,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dateTime,
+        date: dayjs(`${date}T${time}:00`).toDate(),
         role: "owner",
         createdBy: userEmail,
         createdAt: new Date(),
@@ -119,7 +119,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dateTime,
+          date: dayjs(`${date}T${time}:00`).toDate(),
           role: "guest",
           invitedBy: userEmail,
           createdBy: userEmail,

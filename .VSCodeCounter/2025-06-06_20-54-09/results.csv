@@ -1,0 +1,130 @@
+"filename", "language", "TypeScript", "JSON with Comments", "JSON", "JavaScript", "Markdown", "XML", "PostCSS", "TypeScript JSX", "comment", "blank", "total"
+"d:\VS_Code\ĐATN_Noce\Noce\.eslintrc.json", "JSON with Comments", 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"d:\VS_Code\ĐATN_Noce\Noce\README.md", "Markdown", 0, 0, 0, 0, 26, 0, 0, 0, 0, 14, 40
+"d:\VS_Code\ĐATN_Noce\Noce\actions\actions.ts", "TypeScript", 69, 0, 0, 0, 0, 0, 0, 0, 5, 15, 89
+"d:\VS_Code\ĐATN_Noce\Noce\actions\boardActions.ts", "TypeScript", 119, 0, 0, 0, 0, 0, 0, 0, 12, 17, 148
+"d:\VS_Code\ĐATN_Noce\Noce\actions\event-actions.ts", "TypeScript", 169, 0, 0, 0, 0, 0, 0, 0, 12, 19, 200
+"d:\VS_Code\ĐATN_Noce\Noce\app\api\auth-endpoint\route.ts", "TypeScript", 30, 0, 0, 0, 0, 0, 0, 0, 1, 10, 41
+"d:\VS_Code\ĐATN_Noce\Noce\app\api\boards\route.ts", "TypeScript", 17, 0, 0, 0, 0, 0, 0, 0, 0, 2, 19
+"d:\VS_Code\ĐATN_Noce\Noce\app\api\liveblocks-auth\route.ts", "TypeScript", 23, 0, 0, 0, 0, 0, 0, 0, 0, 5, 28
+"d:\VS_Code\ĐATN_Noce\Noce\app\calender\globals.css", "PostCSS", 0, 0, 0, 0, 0, 0, 66, 0, 0, 2, 68
+"d:\VS_Code\ĐATN_Noce\Noce\app\calender\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 17, 7, 4, 28
+"d:\VS_Code\ĐATN_Noce\Noce\app\calender\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 41, 13, 11, 65
+"d:\VS_Code\ĐATN_Noce\Noce\app\document\doc\[id]\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 15, 1, 5, 21
+"d:\VS_Code\ĐATN_Noce\Noce\app\document\doc\[id]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 14
+"d:\VS_Code\ĐATN_Noce\Noce\app\document\doc\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 9, 0, 4, 13
+"d:\VS_Code\ĐATN_Noce\Noce\app\document\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 43, 1, 5, 49
+"d:\VS_Code\ĐATN_Noce\Noce\app\document\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 15, 0, 1, 16
+"d:\VS_Code\ĐATN_Noce\Noce\app\globals.css", "PostCSS", 0, 0, 0, 0, 0, 0, 66, 0, 0, 2, 68
+"d:\VS_Code\ĐATN_Noce\Noce\app\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 30, 1, 14, 45
+"d:\VS_Code\ĐATN_Noce\Noce\app\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 33, 1, 4, 38
+"d:\VS_Code\ĐATN_Noce\Noce\app\sign-in\[[...sign-in]]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 12
+"d:\VS_Code\ĐATN_Noce\Noce\app\sign-up\[[...sign-up]]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 12
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\@modal\(.)cards\[cardId]\default.ts", "TypeScript", 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\@modal\(.)cards\[cardId]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 6, 0, 1, 7
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\@modal\(.)cards\default.ts", "TypeScript", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\@modal\default.ts", "TypeScript", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\cards\[cardId]\default.ts", "TypeScript", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\cards\[cardId]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 12, 0, 2, 14
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\default.ts", "TypeScript", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 29, 0, 2, 31
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 49, 4, 3, 56
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\boards\[boardId]\settings\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 61, 4, 3, 68
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 11, 1, 4, 16
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\liveblocks.config.ts", "TypeScript", 58, 0, 0, 0, 0, 0, 0, 0, 6, 11, 75
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\new-board\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 31, 0, 1, 32
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 23, 2, 2, 27
+"d:\VS_Code\ĐATN_Noce\Noce\app\task\task.css", "PostCSS", 0, 0, 0, 0, 0, 0, 67, 0, 4, 9, 80
+"d:\VS_Code\ĐATN_Noce\Noce\components.json", "JSON", 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 21
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\HeaderCal.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 12
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\MainView.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 68, 1, 9, 78
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\SideBar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 21, 2, 2, 25
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\add-time.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 76, 0, 8, 84
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\create.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 39, 0, 8, 47
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\day-view.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 189, 10, 12, 211
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\event-popover.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 283, 0, 26, 309
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\event-renderer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 120, 3, 7, 130
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\event-summary-popover.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 101, 4, 12, 117
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\left-side.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 95, 4, 14, 113
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\month-view-box.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 54, 0, 9, 63
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\month-view.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 18, 0, 5, 23
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\my-calendars.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 43, 0, 5, 48
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\right-side.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 32, 18, 9, 59
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\search-users.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 14, 0, 2, 16
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\side-bar-calendar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 68, 4, 8, 80
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\svg-icons.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 15
+"d:\VS_Code\ĐATN_Noce\Noce\components\calender\week-view.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 202, 11, 18, 231
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Avatar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 38, 0, 11, 49
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Breadcumbs.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 58, 0, 9, 67
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\ChatToDocument.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 96, 0, 9, 105
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\DeleteDocument.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 63, 0, 10, 73
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Document.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 191, 11, 13, 215
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Editor.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 83, 5, 20, 108
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\FollowPoiter.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 65, 14, 5, 84
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Header.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 59, 4, 11, 74
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\InviteUser.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 64, 0, 13, 77
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\LiveBlockProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 16, 0, 7, 23
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\LiveCursorProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 28, 0, 5, 33
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\LoadingSpinner.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 13, 0, 5, 18
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\ManageUsers.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 81, 0, 16, 97
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\NewDocumentButton.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 22, 1, 4, 27
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\RoomProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 21, 0, 6, 27
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\Sidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 122, 9, 22, 153
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\SidebarOption.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 27, 1, 6, 34
+"d:\VS_Code\ĐATN_Noce\Noce\components\document\TranslateDocument.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 116, 0, 25, 141
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\Board.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 181, 9, 11, 201
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\BoardContext.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 20, 0, 4, 24
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\BoardDeleteButton.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 18, 0, 1, 19
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\Boards.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 12, 1, 4, 17
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\BoardsTiles.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 40, 0, 2, 42
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\CancelButton.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 12, 0, 1, 13
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\Card.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 96, 0, 8, 104
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\CardDescription.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 35, 1, 9, 45
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\CardModalBody.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 137, 0, 13, 150
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\Column.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 127, 0, 11, 138
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\Columns.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 51, 0, 6, 57
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\DeleteWithConfirmation.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 41, 0, 3, 44
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\DescriptionEditor.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 70, 0, 5, 75
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\EmailsAccessList.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 32, 0, 1, 33
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\LiveBlockProviderTask.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 16, 0, 7, 23
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\PresenceAvatars.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 26, 1, 5, 32
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\forms\NewBoardAccessForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 23, 0, 1, 24
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\forms\NewCardForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 42, 0, 4, 46
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\forms\NewColumnForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 38, 0, 5, 43
+"d:\VS_Code\ĐATN_Noce\Noce\components\task\views\CardModal.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 33, 1, 5, 39
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\accordion.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 50, 0, 8, 58
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\avatar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 44, 0, 7, 51
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\breadcrumb.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 105, 0, 11, 116
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\button.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 52, 0, 6, 58
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\checkbox.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 26, 0, 5, 31
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\dialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 109, 0, 14, 123
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\drawer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 105, 0, 14, 119
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\input.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 23
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\scroll-area.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 43, 0, 6, 49
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\select.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 146, 0, 14, 160
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\sheet.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 125, 0, 16, 141
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\sonner.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 26, 0, 6, 32
+"d:\VS_Code\ĐATN_Noce\Noce\components\ui\tooltip.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 25, 0, 8, 33
+"d:\VS_Code\ĐATN_Noce\Noce\firebase-admin.ts", "TypeScript", 16, 0, 0, 0, 0, 0, 0, 0, 1, 5, 22
+"d:\VS_Code\ĐATN_Noce\Noce\firebase.ts", "TypeScript", 15, 0, 0, 0, 0, 0, 0, 0, 1, 3, 19
+"d:\VS_Code\ĐATN_Noce\Noce\lib\data.ts", "TypeScript", 14, 0, 0, 0, 0, 0, 0, 0, 2, 7, 23
+"d:\VS_Code\ĐATN_Noce\Noce\lib\getTime.ts", "TypeScript", 52, 0, 0, 0, 0, 0, 0, 0, 3, 16, 71
+"d:\VS_Code\ĐATN_Noce\Noce\lib\liveblocks.ts", "TypeScript", 9, 0, 0, 0, 0, 0, 0, 0, 0, 4, 13
+"d:\VS_Code\ĐATN_Noce\Noce\lib\liveblocksClient.ts", "TypeScript", 9, 0, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"d:\VS_Code\ĐATN_Noce\Noce\lib\store.ts", "TypeScript", 97, 0, 0, 0, 0, 0, 0, 0, 5, 10, 112
+"d:\VS_Code\ĐATN_Noce\Noce\lib\stringToColor.ts", "TypeScript", 10, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11
+"d:\VS_Code\ĐATN_Noce\Noce\lib\useOwner.ts", "TypeScript", 32, 0, 0, 0, 0, 0, 0, 0, 0, 6, 38
+"d:\VS_Code\ĐATN_Noce\Noce\lib\utils.ts", "TypeScript", 5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"d:\VS_Code\ĐATN_Noce\Noce\liveblocks.config.ts", "TypeScript", 23, 0, 0, 0, 0, 0, 0, 0, 20, 7, 50
+"d:\VS_Code\ĐATN_Noce\Noce\middleware.ts", "TypeScript", 8, 0, 0, 0, 0, 0, 0, 0, 2, 2, 12
+"d:\VS_Code\ĐATN_Noce\Noce\next.config.mjs", "JavaScript", 0, 0, 0, 2, 0, 0, 0, 0, 1, 2, 5
+"d:\VS_Code\ĐATN_Noce\Noce\package-lock.json", "JSON", 0, 0, 16926, 0, 0, 0, 0, 0, 0, 1, 16927
+"d:\VS_Code\ĐATN_Noce\Noce\package.json", "JSON", 0, 0, 93, 0, 0, 0, 0, 0, 0, 1, 94
+"d:\VS_Code\ĐATN_Noce\Noce\postcss.config.mjs", "JavaScript", 0, 0, 0, 6, 0, 0, 0, 0, 1, 2, 9
+"d:\VS_Code\ĐATN_Noce\Noce\public\next.svg", "XML", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"d:\VS_Code\ĐATN_Noce\Noce\public\vercel.svg", "XML", 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"d:\VS_Code\ĐATN_Noce\Noce\tailwind.config.ts", "TypeScript", 99, 0, 0, 0, 0, 0, 0, 0, 0, 2, 101
+"d:\VS_Code\ĐATN_Noce\Noce\tsconfig.json", "JSON with Comments", 0, 26, 0, 0, 0, 0, 0, 0, 0, 1, 27
+"d:\VS_Code\ĐATN_Noce\Noce\types\globals.d.ts", "TypeScript", 5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"d:\VS_Code\ĐATN_Noce\Noce\types\types.ts", "TypeScript", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5
+"Total", "-", 899, 29, 17040, 8, 26, 2, 199, 4991, 226, 836, 24256
