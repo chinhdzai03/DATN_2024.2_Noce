@@ -10,7 +10,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 function generateEventId() {
-  const randomNum = Math.floor(1000 + Math.random() * 9000); // 4 số ngẫu nhiên
+  const randomNum = Math.floor(1000 + Math.random() * 9000); 
   return `CalendarEvent${randomNum}`;
 }
 
@@ -39,8 +39,6 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
   const dateTime = dayjs(`${date}T${time || fromTime}:00`).toDate();
   const eventId = generateEventId();
 
-  console.log("date with utc", dayjs(`${date}T${fromTime}:00`).utc().toDate());
-    console.log("date without utc", dayjs(`${date}T${fromTime}:00`).toDate());
 
 
   try {
@@ -49,7 +47,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
+      date: dayjs.tz(`${date}T${fromTime}:00`, 'Asia/Ho_Chi_Minh').toDate(),
       fromTime: fromTime || time,
       toTime: toTime || time,
       createdBy: userEmail,
@@ -65,7 +63,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
+        date: dayjs.tz(`${date}T${fromTime}:00`, 'Asia/Ho_Chi_Minh').toDate(),
         fromTime: fromTime || time,
         toTime: toTime || time,
         role: "owner",
@@ -84,7 +82,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
+          date: dayjs.tz(`${date}T${fromTime}:00`, 'Asia/Ho_Chi_Minh').toDate(),
           fromTime: fromTime || time,
           toTime: toTime || time,
           role: "guest",
@@ -100,7 +98,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: dayjs(`${date}T${time}:00`).utc().toDate(),
+      date: dayjs.tz(`${date}T${time}:00`, 'Asia/Ho_Chi_Minh').toDate(),
       createdBy: userEmail,
       createdAt: new Date(),
     });
@@ -114,7 +112,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dayjs(`${date}T${time}:00`).utc().toDate(),
+        date: dayjs.tz(`${date}T${time}:00`, 'Asia/Ho_Chi_Minh').toDate(),
         role: "owner",
         createdBy: userEmail,
         createdAt: new Date(),
@@ -131,7 +129,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dayjs(`${date}T${time}:00`).utc().toDate(),
+          date: dayjs.tz(`${date}T${time}:00`, 'Asia/Ho_Chi_Minh').toDate(),
           role: "guest",
           invitedBy: userEmail,
           createdBy: userEmail,
