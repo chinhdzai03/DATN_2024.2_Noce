@@ -1,10 +1,7 @@
 'use server';
 
-// import {authOptions} from "@/lib/authOptions";
 import {getLiveblocksClient, liveblocksClient} from "@/lib/liveblocksClient";
 import {Liveblocks, RoomInfo} from "@liveblocks/node";
-// import {getServerSession} from "next-auth";
-import uniqid from 'uniqid';
 import { auth } from "@clerk/nextjs/server";
 import { adminDb } from "@/firebase-admin";
 
@@ -20,7 +17,7 @@ export async function createBoard(name: string) : Promise<false | RoomInfo> {
   if (!email) return false;
 
   function generateTaskRoomId() {
-    const randomNum = Math.floor(1000 + Math.random() * 9000); // 4 số ngẫu nhiên
+    const randomNum = Math.floor(1000 + Math.random() * 9000); 
     return `TaskBoard${randomNum}`;
 }
   let roomId = generateTaskRoomId();
@@ -86,7 +83,6 @@ export async function addEmailToBoard(boardId:string, email:string) {
 
 export async function updateBoard(boardId:string, updateData:any) {
   const result = await liveblocksClient.updateRoom(boardId, updateData);
-  // Nếu updateData.metadata.boardName thì update name trên Firestore
   if (updateData?.metadata?.boardName) {
     await adminDb.collection("boards").doc(boardId).update({
       name: updateData.metadata.boardName

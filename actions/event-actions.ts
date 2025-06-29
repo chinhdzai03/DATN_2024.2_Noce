@@ -4,6 +4,10 @@ import { adminDb } from "@/firebase-admin";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 function generateEventId() {
   const randomNum = Math.floor(1000 + Math.random() * 9000); // 4 số ngẫu nhiên
@@ -21,6 +25,8 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
   const description = formData.get('description') as string;
   const date = formData.get('date') as string;
   const time = formData.get('time') as string;
+  // console.log("time:", time)
+  // console.log("date:", date)
   const fromTime = formData.get('fromTime') as string | null;
   const toTime = formData.get('toTime') as string | null;
   const guestsRaw = formData.get('guests') as string;
@@ -33,13 +39,17 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
   const dateTime = dayjs(`${date}T${time || fromTime}:00`).toDate();
   const eventId = generateEventId();
 
+  console.log("date with utc", dayjs(`${date}T${fromTime}:00`).utc().toDate());
+    console.log("date without utc", dayjs(`${date}T${fromTime}:00`).toDate());
+
+
   try {
-    // Tạo sự kiện trong collection 'events' với eventId tự tạo
+    // Tạo sự kiện trong collection 'events' 
     if(fromTime && toTime){
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: dayjs(`${date}T${fromTime}:00`).toDate(),
+      date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
       fromTime: fromTime || time,
       toTime: toTime || time,
       createdBy: userEmail,
@@ -55,7 +65,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dayjs(`${date}T${fromTime}:00`).toDate(),
+        date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
         fromTime: fromTime || time,
         toTime: toTime || time,
         role: "owner",
@@ -74,7 +84,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dayjs(`${date}T${fromTime}:00`).toDate(),
+          date: dayjs(`${date}T${fromTime}:00`).utc().toDate(),
           fromTime: fromTime || time,
           toTime: toTime || time,
           role: "guest",
@@ -83,12 +93,14 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           createdAt: new Date(),
         });
     }
+    
   }
+  // event không có fromTime và toTime
   else{
     await adminDb.collection("events").doc(eventId).set({
       title,
       description,
-      date: dayjs(`${date}T${time}:00`).toDate(),
+      date: dayjs(`${date}T${time}:00`).utc().toDate(),
       createdBy: userEmail,
       createdAt: new Date(),
     });
@@ -102,7 +114,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         eventId: eventId,
         title,
         description,
-        date: dayjs(`${date}T${time}:00`).toDate(),
+        date: dayjs(`${date}T${time}:00`).utc().toDate(),
         role: "owner",
         createdBy: userEmail,
         createdAt: new Date(),
@@ -119,7 +131,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
           eventId: eventId,
           title,
           description,
-          date: dayjs(`${date}T${time}:00`).toDate(),
+          date: dayjs(`${date}T${time}:00`).utc().toDate(),
           role: "guest",
           invitedBy: userEmail,
           createdBy: userEmail,
@@ -127,7 +139,7 @@ export async function createEvent(formData: FormData): Promise<{ error: string }
         });
     }
   }
-    // Làm mới cache path (nếu cần)
+  
     revalidatePath("/");
 
     return { success: true };
@@ -158,7 +170,7 @@ export async function getEvents() {
       id: doc.id,
       title: data.title,
       description: data.description,
-      date: dayjs(data.date.toDate()), // convert Firestore Timestamp to dayjs
+      date: dayjs(data.date.toDate()).tz('Asia/Ho_Chi_Minh'),
       fromTime,
       toTime,
       role: data.role,
@@ -172,9 +184,9 @@ export async function deleteEvent(eventId: string): Promise<{ success: boolean; 
     auth.protect();
     // console.log("[deleteEvent] eventId:", eventId);
 
-    // Tìm và xóa tất cả reference trong myEvents của mọi user trước
+    //  xóa tất cả reference trong myEvents của mọi user trước
     const query = await adminDb.collectionGroup('myEvents').where('eventId', '==', eventId).get();
-    // console.log('[deleteEvent] myEvents found:', query.docs.length);
+    
     const batch = adminDb.batch();
     let deleteCount = 0;
     query.docs.forEach((doc) => {
@@ -183,12 +195,12 @@ export async function deleteEvent(eventId: string): Promise<{ success: boolean; 
         deleteCount++;
       }
     });
-    // console.log('[deleteEvent] myEvents to delete:', deleteCount);
+    
     if (deleteCount > 0) {
       await batch.commit();
     }
 
-    // Sau đó xóa event khỏi collection 'events'
+    // xóa event khỏi collection 'events'
     await adminDb.collection("events").doc(eventId).delete();
 
     revalidatePath("/");

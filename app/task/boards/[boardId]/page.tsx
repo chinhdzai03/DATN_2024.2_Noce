@@ -44,6 +44,7 @@ export default async function BoardPage(props: PageProps) {
   // Lấy backgroundImage từ Firestore
   const boardDoc = await adminDb.collection('boards').doc(boardId).get();
   const backgroundImage = boardDoc.exists ? boardDoc.data()?.backgroundImage : undefined;
+  
   return (
     <div>
       <Board

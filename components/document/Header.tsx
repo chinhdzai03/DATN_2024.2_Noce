@@ -13,7 +13,6 @@ const Header = () => {
     const router = useRouter();
     const pathname = usePathname();
     
-    // Hàm xác định active
     const isActive = (path: string) => pathname.startsWith(path);
 
     const navItems = [
@@ -29,11 +28,11 @@ const Header = () => {
           <div className='flex items-center '>
             {/* Hiển thị tên user nếu đã có, nếu chưa thì để placeholder */}
             <h1 className='text-2xl font-bold '>
-              {user ? `${user.firstName} 's Space` : <span className="opacity-50">Loading...</span>}
+              {user ? `${user.firstName ? user.firstName : user.username} 's Space` : <span className="opacity-50">Loading...</span>}
             </h1>
-            {/* Divider */}
             
               <div className='border-white border-2 h-10 ml-6'>
+                
               </div>
               <div className='flex gap-3 ml-6'>
                 {navItems.map(item => (

@@ -7,7 +7,10 @@ import { IoCloseSharp } from "react-icons/io5"
 import { CalendarEventType } from '@/lib/store'
 import { deleteEvent } from "@/actions/event-actions"
 import { toast } from "sonner"
-
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc);
+dayjs.extend(timezone)
 interface EventSummaryPopoverProps {
   isOpen: boolean
   onClose: () => void
@@ -72,7 +75,7 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
         <div className="space-y-2">
           <p><strong>Title:</strong> {event.title}</p>
           {/* Format the date before displaying it */}
-          <p><strong>Date:</strong> {dayjs(event.date).format("dddd, MMMM D, YYYY h:mm A")}</p>
+          <p><strong>Date:</strong> {dayjs(event.date).tz('Asia/Ho_Chi_Minh').format("dddd, MMMM D, YYYY h:mm A")}</p>
           {event.role === 'guest' && (
             <p><strong>Created By:</strong> {event.createdBy || "Unknown"}</p>
           )}

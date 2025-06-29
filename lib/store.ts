@@ -95,10 +95,6 @@ export const useEventStore = create<EventStore>((set) => ({
     set({ isEventSummaryOpen: true, selectedEvent: event }),
   closeEventSummary: () =>
     set({ isEventSummaryOpen: false, selectedEvent: null }),
-  // loadEventsFromFirestore: async () => {
-  //   const events = await getEvents();
-  //   set({ events });
-  // },
 }));
 
 export const useToggleSideBarStore = create<ToggleSideBarType>()(

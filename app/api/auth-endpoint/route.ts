@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from '@/firebase-admin';
 
 export async function POST(request: NextRequest) { 
-    //auth().protect();
+
     auth.protect();
 
     const {sessionClaims} = await auth();

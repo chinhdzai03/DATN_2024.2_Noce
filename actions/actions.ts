@@ -9,13 +9,11 @@ export async function createNewDocument() {
     auth.protect();
     const {sessionClaims} = await auth();
 
-    // Tạo roomID theo format DocRoomXXXX với 4 số ngẫu nhiên
     function generateRoomId() {
         const randomNum = Math.floor(1000 + Math.random() * 9000); // 4 số ngẫu nhiên
         return `DocRoom${randomNum}`;
     }
     let roomId = generateRoomId();
-    // Đảm bảo roomId là duy nhất (có thể kiểm tra trùng lặp nếu cần)
 
     // Tạo document với roomId custom
     await adminDb.collection("documents").doc(roomId).set({
@@ -37,13 +35,12 @@ export async function deleteDocument( roomId : string) {
     console.log("deleteDocument", roomId); 
 
     try {
-        // delete the document reference itself
         await adminDb.collection('documents').doc(roomId).delete();
     
         const query = await adminDb.collectionGroup('rooms').where('roomId' , '==', roomId).get();
     
         const batch = adminDb.batch();
-        // Delete the room references in the user's collection for every user in the room
+        
         query.docs.forEach((doc) => {
             batch.delete(doc.ref);
         });
