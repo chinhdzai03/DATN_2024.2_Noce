@@ -38,7 +38,7 @@ dayjs.extend(timezone);
 //   }
 // };
 
-export const getEventsData = async (userId: string): Promise<CalendarEventType[]> => {
+ const getEventsData = async (userId: string): Promise<CalendarEventType[]> => {
   try {
     const snapshot = await adminDb
       .collection("users")
