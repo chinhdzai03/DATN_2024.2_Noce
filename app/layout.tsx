@@ -1,8 +1,11 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/document/Header";
 import { Toaster } from "@/components/ui/sonner";
+import GlobalNotifier from "@/components/GlobalNotifier";
+import EventLoader from "@/components/EventLoader";
 
 
 
@@ -24,6 +27,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className=" bg-white overflow-auto" >
+          <GlobalNotifier />
+          <EventLoader/>
           <Header />
           <div className="flex-1">
             

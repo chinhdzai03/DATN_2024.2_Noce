@@ -27,7 +27,7 @@ const Header = () => {
         <SignedIn>
           <div className='flex items-center '>
             {/* Hiển thị tên user nếu đã có, nếu chưa thì để placeholder */}
-            <h1 className='text-2xl font-bold '>
+            <h1 className='text-2xl font-bold ' onClick={() => router.push('/')}>
               {user ? `${user.firstName ? user.firstName : user.username} 's Space` : <span className="opacity-50">Loading...</span>}
             </h1>
             

@@ -11,9 +11,14 @@ import WeekView from "./week-view";
 import DayView from "./day-view";
 import EventPopover from "./event-popover";
 import { EventSummaryPopover } from "./event-summary-popover";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import dayjs from "dayjs";
+import { toast } from "sonner";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
 export default function MainView({
   eventsData,
 }: {
@@ -22,6 +27,7 @@ export default function MainView({
   const { selectedView } = useViewStore();
 
   const {
+    events,
     isPopoverOpen,
     closePopover,
     isEventSummaryOpen,
@@ -31,6 +37,8 @@ export default function MainView({
   } = useEventStore();
 
   const { userSelectedDate } = useDateStore();
+
+
 
   useEffect(() => {
     const mappedEvents: CalendarEventType[] = eventsData.map((event) => ({
@@ -42,10 +50,12 @@ export default function MainView({
       toTime: event.toTime,
       role: event.role,
       createdBy: event.createdBy,
+      reply: event.reply,
     }));
 
     setEvents(mappedEvents);
   }, [eventsData, setEvents]);
+
 
   return (
     <div className="flex">
@@ -53,8 +63,8 @@ export default function MainView({
       <SideBar />
 
       <div className="w-full flex-1">
-        {selectedView === "month" && <MonthView />}
         {selectedView === "week" && <WeekView />}
+        {selectedView === "month" && <MonthView />}
         {selectedView === "day" && <DayView />}
       </div>
       {isPopoverOpen && (

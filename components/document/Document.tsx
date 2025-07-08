@@ -37,10 +37,12 @@ const Document = ({id} : {id : string}) => {
     const [tab, setTab] = useState<'link' | 'unsplash'>('link');
     const [linkInput, setLinkInput] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
-
+    const [type, setType] = useState('');
+    // console.log("Document data:", data);
     useEffect(() => {
         if (data) {
             setInput(data.title);
+            setType(data.type || '');
         }
     },[data])
     const updateTitle = (e: FormEvent) => {
@@ -56,7 +58,18 @@ const Document = ({id} : {id : string}) => {
         await updateDoc(doc(db, "documents", id), { icon });
     }
 
-    
+    const updateType = async (e : React.ChangeEvent<HTMLSelectElement> ) => {
+        const typeSelected = e.target.value;
+        setType(typeSelected);
+        try {
+          await updateDoc(doc(db, 'documents', id), { type: typeSelected });
+          await updateDoc(doc(db, 'users', data?.userId || '', 'rooms' , id ), { type: typeSelected });
+          console.log("Type updated successfully");
+        }
+        catch (error) {
+          console.error("Error updating type:", error);
+        }
+    }    
 
     // Hàm lưu link ảnh
     const handleLinkSave = async () => {
@@ -178,6 +191,20 @@ const Document = ({id} : {id : string}) => {
               />
             </div>
           )}
+          {/* Type */}
+          <div className='text-[16px]'>
+            <select id="tag" value={type} onChange={updateType} className='ml-2 p-1 shadow border rounded-xl ' >
+              <option value="">Thể loại</option>
+              <option value="Mục tiêu"> Mục tiêu</option>
+              <option value="Học tập"> Học tập</option>
+              <option value="Công việc"> Công việc</option>
+              <option value="Sở thích"> Sở thích</option>
+              <option value="Giải trí"> Giải trí</option>
+              <option value="Tài chính"> Tài chính</option>
+            </select>
+
+        
+          </div>
           {/* Update title... */}
           <Input
             className='max-w-5xl'

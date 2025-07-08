@@ -3,7 +3,7 @@ import {LiveList, LiveObject} from "@liveblocks/core";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
-  authEndpoint: "/api/liveblocks-auth",
+  authEndpoint: "/api/auth-task",
   throttle: 100,
 });
 
@@ -65,11 +65,4 @@ export const {
   UserMeta,
   RoomEvent,
   ThreadMetadata
->(client
-//   , {
-//   resolveUsers: async (userIds: string[]) => {
-//     const response = await fetch(`/api/users?ids=${userIds.join(",")}`);
-//     return await response.json();
-//   },
-// }
-);
+>(client);

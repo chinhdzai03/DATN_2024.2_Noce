@@ -2,7 +2,6 @@ import dayjs, { Dayjs } from "dayjs";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { getMonth } from "./getTime";
-import { getEvents } from "@/actions/event-actions";
 
 interface ViewStoreType {
   selectedView: string;
@@ -26,6 +25,7 @@ export type CalendarEventType = {
   toTime?: string;
   role?: "owner" | "guest";
   createdBy?: string;
+  reply?: boolean; // true if the event is a recurring event
 };
 
 type EventStore = {
@@ -52,7 +52,7 @@ export const useViewStore = create<ViewStoreType>()(
   devtools(
     persist(
       (set) => ({
-        selectedView: "month",
+        selectedView: "week",
         setView: (value: string) => {
           set({ selectedView: value });
         },

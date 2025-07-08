@@ -32,7 +32,7 @@ export default function DocumentLayout({ children }: { children: React.ReactNode
 
   return (
     <div className="flex min-h-screen">
-      <div style={{ width: sidebarWidth, minWidth: 180, maxWidth: 400 }} className="relative  bg-gray-100">
+      <div style={{ width: sidebarWidth, minWidth: 200, maxWidth: 360 }} className="relative  bg-gray-100">
         <Sidebar />
         {/* Thanh kéo */}
         <div

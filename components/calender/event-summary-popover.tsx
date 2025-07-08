@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import { Button } from "@/components/ui/button"
 import { IoCloseSharp } from "react-icons/io5"
 import { CalendarEventType } from '@/lib/store'
-import { deleteEvent } from "@/actions/event-actions"
+import { deleteEvent, deleteEventOne } from "@/actions/event-actions"
 import { toast } from "sonner"
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -52,6 +52,22 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
       setDeleteError(result.error || "Failed to delete event. Please try again.");
     }
   };
+
+  const handleDeleteOne = async () => {
+    if (!event.id || !event.date) return;
+    setDeleteError(null);
+    const occurrenceDateISO = dayjs(event.date).toISOString();
+    const result = await deleteEventOne(event.id, occurrenceDateISO);
+    if (result.success) {
+      toast.success("Event deleted successfully!");
+      setShowConfirm(false);
+      onClose();
+    } else {
+      toast.error(result.error || "Failed to delete event. Please try again.");
+      setDeleteError(result.error || "Failed to delete event. Please try again.");
+    }
+  };
+
   // console.log(event)
 
   if (!isOpen) return null
@@ -87,6 +103,7 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
               {event.description}
             </div>
           </div>
+          <strong className='pt-4'>Reply: {event.reply ? "Yes" : "No"}</strong>
           {/* Add more event details here */}
           {event.role === 'owner' && (
             <div className='flex justify-end'>
@@ -111,12 +128,29 @@ export function EventSummaryPopover({ isOpen, onClose, event }: EventSummaryPopo
                 <Button variant="outline" onClick={() => setShowConfirm(false)}>
                   No
                 </Button>
+                {event.reply 
+                ? <div className='flex gap-2' >
                 <Button
+                  variant="destructive"
+                  onClick={handleDeleteOne}
+                >
+                  This
+                </Button>
+                <Button
+                  variant="destructive"
+                  onClick={handleDelete}
+                >
+                  All
+                </Button>  
+                </div>
+                : <Button
                   variant="destructive"
                   onClick={handleDelete}
                 >
                   Yes
                 </Button>
+                  }
+                
               </div>
             </div>
           </div>

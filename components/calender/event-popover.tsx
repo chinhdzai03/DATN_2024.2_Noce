@@ -144,10 +144,20 @@ export default function EventPopover({
             />
           </div>
 
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-between items-center space-x-2">
+            <div className="">
+              <label htmlFor="reply" className="mr-2">Lặp lại:</label>
+              <select defaultValue={"day"}  name="reply" id="reply" className="rounded-lg border-0 bg-slate-100 pl-2 pr-4 py-1 text-sm focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0">
+                <option  value="day">Không</option>
+                <option value="week">1 tuần</option>
+                <option value="month">1 tháng</option>
+                <option value="year">1 năm</option>
+              </select>
+            </div>
             <Button type="submit" disabled={isPending}>
               {isPending ? "Saving..." : "Save"}
             </Button>
+            
           </div>
         </form>
       </div>
@@ -244,7 +254,7 @@ export function EventRangeModal({
             type="button"
             onClick={handleClose}
           >
-            <IoCloseSharp className="h-4 w-4" />
+            <IoCloseSharp className="h-4 w-4" />                                                        
           </Button>
         </div>
         <form className="space-y-4 p-6" action={onSubmit} key={formKey}>
@@ -296,10 +306,20 @@ export function EventRangeModal({
             />
           </div>
 
-          <div className="flex justify-end space-x-2">
+          <div className="flex justify-between items-center space-x-2">
+            <div className="">
+              <label htmlFor="reply" className="mr-2">Lặp lại:</label>
+              <select defaultValue={"day"} name="reply" id="reply" className="rounded-lg border-0 bg-slate-100 pl-2 pr-4 py-1 text-sm focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring focus-visible:ring-offset-0">
+                <option value="day">Không</option>
+                <option value="week">1 tuần</option>
+                <option value="month">1 tháng</option>
+                <option value="year">1 năm</option>
+              </select>
+            </div>
             <Button type="submit" disabled={isPending}>
               {isPending ? "Saving..." : "Save"}
             </Button>
+            
           </div>
         </form>
       </div>

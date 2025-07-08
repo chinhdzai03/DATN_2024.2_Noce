@@ -18,7 +18,7 @@ A distraction-free editor for writing notes, ideas, or documents.
 ### 2. 📆 Manage Calendar
 Stay on top of your schedule and never miss an important event.
 
-- Create, update, and delete events
+- Create, and delete events or daily events
 - Daily, weekly, and monthly views
 
 ### 3. ✅ Manage Task

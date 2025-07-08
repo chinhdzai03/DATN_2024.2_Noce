@@ -80,20 +80,20 @@ export function EventRenderer({ date, view, events }: EventRendererProps) {
                     zIndex: 1,
                     display: "flex",
                     alignItems: "center",
+                    opacity: 0.8,
                   }}
                   onClick={(e) => {
                     e.stopPropagation();
                     openEventSummary(event);
                   }}
-                  className="w-[90%] rounded-sm p-1 text-sm text-white cursor-pointer"
-                >
+                  className="w-[90%] rounded-sm p-1 text-sm text-white cursor-pointer opacity-50" >
                   {event.title}
                 </div>
               );
             }
             // Event thường (không phải event range)
             if (
-              (!event.fromTime &&
+              (!event.toTime &&
                 dayjs(event.date).format("DD-MM-YY HH:mm") === date.format("DD-MM-YY HH:mm")) ||
               (event.fromTime && event.toTime && false) // Không render event range như event thường
             ) {
@@ -104,7 +104,7 @@ export function EventRenderer({ date, view, events }: EventRendererProps) {
                     e.stopPropagation();
                     openEventSummary(event);
                   }}
-                  className={`shadow-xl line-clamp-1 w-[90%] cursor-pointer rounded-sm p-1 text-sm text-white ${event.role === 'guest' ? 'bg-[#211C6A]' : 'bg-[#74E291]'}`}
+                  className={`shadow-2xl line-clamp-1 w-[90%] cursor-pointer rounded-sm p-1 text-sm text-white z-10 ${event.role === 'guest' ? 'bg-[#211C6A]' : 'bg-[#74E291]'}`}
                 >
                   <p className="font-semibold">{event.title}</p>
                 </div>
@@ -119,7 +119,7 @@ export function EventRenderer({ date, view, events }: EventRendererProps) {
                 e.stopPropagation();
                 openEventSummary(event);
               }}
-              className={`shadow-xl line-clamp-1 w-[90%] cursor-pointer rounded-sm p-1 text-sm text-white ${event.role === 'guest' ? 'bg-[#211C6A]' : 'bg-[#74E291]'}`}
+              className={`shadow-2xl line-clamp-1 w-[90%] cursor-pointer rounded-sm p-1 text-sm text-white z-10 ${event.role === 'guest' ? 'bg-[#211C6A]' : 'bg-[#74E291]'}`}
             >
               <p className="font-semibold">{event.title}</p>
             </div>

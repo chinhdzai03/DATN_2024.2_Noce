@@ -18,13 +18,16 @@ export async function createNewDocument() {
     // Tạo document với roomId custom
     await adminDb.collection("documents").doc(roomId).set({
         title : "New Doc",
-        icon: "📄"
+        icon: "📄",
+        type: "",
+        userId : sessionClaims?.email! , 
     });
     await adminDb.collection('users').doc(sessionClaims?.email!).collection('rooms').doc(roomId).set({
         userId : sessionClaims?.email! , 
         role : "owner",
         createAt : new Date(),
-        roomId : roomId
+        roomId : roomId,
+        type: "",
     });
     return {docId : roomId};
 }

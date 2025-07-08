@@ -6,9 +6,10 @@ import React from 'react'
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { usePathname } from 'next/navigation';
 
-function SidebarOption( {href , id } : {
+function SidebarOption( {href , id , color } : {
     href : string;
-    id : string
+    id : string;
+    color?: string; 
 })  {
 
     const [data , loading , error ] = useDocumentData(doc(db,"documents",id));
@@ -18,14 +19,21 @@ function SidebarOption( {href , id } : {
 
     if (!data)  return null;
   return (
-        <Link href={href} className={`  w-1xl flex pl-2 pr-2  mb-2 items-center rounded-lg hover:bg-gray-200  ${isActive ? 'bg-gray-200 font-bold border-black' : 'border-gray-400'}`}>
+        <Link href={href} className={`  w-1xl flex pl-2 pr-2  mb-2 items-center rounded-lg  hover:bg-gray-200  ${isActive ? 'bg-gray-200 font-bold border-black' : 'border-gray-400'}`}>
              {/* Hiển thị icon nếu có */}
-             {data.icon && (
-               <span className='text-xl mr-2'>{data.icon}</span>
-             )}
-             <p className='truncate'>
-                {data.title}
-             </p>
+             <div className='flex justify-between items-center w-full'>
+               <div className='flex items-center gap-2'>
+                 {data.icon && (
+                   <span className='text-xl mr-2'>{data.icon}</span>
+                 )}
+                 <p className='truncate'>
+                    {data.title}
+                 </p>
+               </div>
+                
+                <span className={`w-3 h-3 rounded ${color}`}></span>
+             </div>
+
         </Link>
   )
 }
